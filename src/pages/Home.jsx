@@ -2,6 +2,7 @@ import Carousel from "../components/Carousel"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link as Anchor } from 'react-router-dom'
+import apiUrl from '../apiUrl'
 //Icons
 import { RiCheckboxBlankCircleFill } from "react-icons/ri"
 
@@ -11,8 +12,8 @@ export default function Home() {
 
     useEffect(
         ()=>{
-            axios('/data.json')
-                .then( res => setData(res.data))
+            axios(apiUrl + 'cities/carousel')
+                .then( res => setData(res.data.data_carousel))
                 .catch( err => console.log(err))
         },
         []

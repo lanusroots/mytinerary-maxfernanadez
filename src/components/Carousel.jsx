@@ -1,5 +1,5 @@
 import Arrow from "../components/Arrow";
-import CardCities from "./CardCities";
+import Card from "./Card";
 import { useState } from "react";
 
 export default function Carousel({data}) {
@@ -36,7 +36,7 @@ export default function Carousel({data}) {
         <div className="flex justify-center items-center">
           <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" onClick={prev_slide} />
           <div className="flex flex-wrap justify-center items-center gap-2">
-            {data.slice(counter, counterTo).map((item) => (<CardCities key={item.id} item={item} /> ))}
+            {data.slice(counter, counterTo).map((each, index) => (<Card key={index} src={each.photo} alt={each.city} city={each.city} /> ))}
           </div>
           <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5" onClick={next_slide} />
         </div>

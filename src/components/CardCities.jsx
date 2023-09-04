@@ -1,8 +1,19 @@
-export default function CardCities({item}) {
+import { Link as Anchor } from "react-router-dom"
+
+export default function CardCities({ id, src, alt, city }) {
   return (
-    <div key={item.id} className="w-[300px] h-[200px] relative">
-        <img src={item.photo} alt={item.id} className="w-full h-full object-cover rounded-md" />
-        <p className="absolute top-1 right-5 backdrop-blur text-white font-bold uppercase">{item.city}</p>
+    <div className="w-[300px] h-[200px] relative">
+      <Anchor to={"/city/" + id}>
+        {" "}
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover rounded-md"
+        />{" "}
+      </Anchor>
+      <p className="absolute top-1 right-5 backdrop-blur text-black font-bold uppercase">
+        {city}
+      </p>
     </div>
   )
 }

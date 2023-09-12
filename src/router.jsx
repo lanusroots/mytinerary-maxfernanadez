@@ -15,8 +15,8 @@ const router = createBrowserRouter([
            { path: '/', element: <Home /> },
            { path: '/home', element: <Home /> },
            { path: '/cities', element: <Cities /> },
-           { path: '/signin', element: <SignIn /> },
-           { path: '/signup', element: <SignUp /> },
+           { path: '/auth/signin', element: <SignIn /> },
+           { path: '/auth/signup', element: <SignUp /> },
            { path: '/city/:city_id', element: <City /> },
            { path: "/*", element: <NotFound />}
         ]

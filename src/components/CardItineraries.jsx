@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Activity from "./Activity"
 
 export default function CardItineraries({ data, index }) {
   const [show, setShow] = useState(false)
@@ -88,10 +89,10 @@ export default function CardItineraries({ data, index }) {
             onClick={() => setViewMore(!viewMore)}
             className="w-36 bg-primary py-2 my-6 rounded-lg hover:opacity-80 text-xl text-white"
           >
-            {viewMore ? "Hide" : "View More"}
+            {viewMore ? "Hide" : "Activities"}
           </button>
           {viewMore && (
-            <h1 className="text-3xl py-6 animate-bounce">Under Construction</h1>
+            <Activity itinerary_id={data._id} />
           )}
         </div>
       )}

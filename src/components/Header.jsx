@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react"
-import { Link as Anchor } from "react-router-dom"
+import { Link as Anchor, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import Swal from "sweetalert2"
 import users_actions from "../store/actions/users"
 const { signout } = users_actions
 //Icons
@@ -11,6 +12,7 @@ export default function Header() {
   const mail = useSelector((store) => store.users.user?.mail)
   const user = useSelector((store) => store.users.user)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   let options = [
     { to: "/", title: "Home" },
@@ -20,6 +22,11 @@ export default function Header() {
 
   const handleSignout = () => {
     dispatch(signout())
+    Swal.fire({
+      icon: "success",
+      title: "Logged out",
+    })
+    navigate("/")
   };
 
   return (

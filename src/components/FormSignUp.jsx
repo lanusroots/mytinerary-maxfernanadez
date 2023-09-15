@@ -1,11 +1,11 @@
 import axios from "axios"
 import { useRef, useEffect } from "react"
 import apiUrl from "../apiUrl"
-import { Link as Anchor } from "react-router-dom"
+import { Link as Anchor, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import user_actions from "../store/actions/users"
 import Swal from "sweetalert2"
 
+import user_actions from "../store/actions/users"
 const { signup } = user_actions
 
 export default function FormSignUp() {
@@ -26,6 +26,7 @@ export default function FormSignUp() {
   const mail = useRef("")
   const password = useRef("")
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(signup())
@@ -83,6 +84,7 @@ export default function FormSignUp() {
         title: "Registration Successful",
         text: "You have successfully registered.",
       })
+      navigate("/auth/signin")
 
       name.current.value = ""
       lastName.current.value = ""

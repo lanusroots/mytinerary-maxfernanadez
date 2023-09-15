@@ -7,9 +7,9 @@ import user_actions from "../store/actions/users"
 const { signin } = user_actions
 
 export default function FormSignIn() {
-  const navigate = useNavigate()
   const mail = useRef("")
   const password = useRef("")
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   function handleSignin() {
